@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trip Detail</title>
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+	<nav>
+	    <div class="nav-wrapper">
+		    <a href="{% url 'home' %}" class="brand-logo">Home</a>
+		    <ul id="nav-mobile" class="right hide-on-med-and-down">
+		      	<li><a href="{% url 'logout' %}">Log Out</a></li>
+		    </ul>
+	    </div>
+  	</nav>
+
+
+	<h1>{{ object.cityname }}</h1>
+
+	<p>{{ object.countryname }}</p>
+
+	<img src="{{ object.image.url }}" style="width:600px;height:auto">
+</body>
+</html>

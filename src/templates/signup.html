@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SIGNUP</title>
+</head>
+<body>
+	{{ message }}
+
+	<form method="POST"> {% csrf_token %}
+		
+		{{ form.username }}	
+
+		{{ form.email }}
+
+		{{ form.password }}
+		<button type="Submit">Register</button>
+	</form>
+	
+	<!-- <form action="." method="post"> {% csrf_token %}
+		<input type="username" name="username" placeholder="Username" required>
+		<input type="email" name="email" placeholder="E-mail" required>
+		<input type="password" name="password" placeholder="Password" required>
+		<button type="submit">Register</button>
+	</form> -->
+
+</body>
+</html>

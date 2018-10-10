@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trips</title>
+
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+	<nav>
+	    <div class="nav-wrapper">
+		    <a href="{% url 'home' %}" class="brand-logo">Home</a>
+		    <ul id="nav-mobile" class="right hide-on-med-and-down">
+		      	<li><a href="{% url 'logout' %}">Log Out</a></li>
+		    </ul>
+	    </div>
+  	</nav>
+
+	<h1>My Trips</h1>
+
+	<a href="{% url 'add-trip' %}" class="waves-effect waves-light btn-large" >Add Trip</a>
+
+	{% for trips in all_trips %}
+
+		<a href="{% url 'trip-detail' pk=trips.id %}">
+			<div class="row">
+			    <div class="col s12 m7">
+			    	<div class="card">
+				    	<div class="card-image">
+					    	<!-- <img src="https://media.istockphoto.com/photos/triangular-abstract-background-picture-id624878906?k=6&m=624878906&s=612x612&w=0&h=uDcbe038RdtiiHchahAbwOYfx0bkPVLfsn0NOjA0gTM="> -->
+					    	<img src="{{ trips.image.url }}">
+					    	<span class="card-title">{{ trips.cityname }}</span>
+				    	</div>
+				    	<div class="card-content">
+				    	  	<p>{{ trips.countryname }}</p>
+				    	</div>
+				    	<div class="card-action">
+				    	  	<a href="#">This is a link</a>
+				    	</div>
+			    	</div>
+			    </div>
+		  	</div>
+		</a>
+
+	{% endfor %}
+
+</body>
+</html>

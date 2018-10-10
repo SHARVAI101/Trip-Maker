@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+
+	<!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+
+	<nav>
+	    <div class="nav-wrapper">
+		    <a href="{% url 'home' %}" class="brand-logo">Home</a>
+		    <ul id="nav-mobile" class="right hide-on-med-and-down">
+		      	<li><a href="{% url 'logout' %}">Log Out</a></li>
+		    </ul>
+	    </div>
+  	</nav>
+
+
+	<h1>{{ message }}</h1>
+
+	<!-- <a href="{% url 'logout' %}" style="float:right">Log Out</a> -->
+
+	<br>
+	<a href="../admin" class="waves-effect waves-light btn-large" >Admin</a>
+	<a href="{% url 'trips' %}" class="waves-effect waves-light btn-large">Manage Trips</a>
+</body>
+</html>
